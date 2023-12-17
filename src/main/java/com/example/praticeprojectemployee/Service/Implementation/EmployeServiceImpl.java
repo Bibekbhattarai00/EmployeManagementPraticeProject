@@ -2,6 +2,7 @@ package com.example.praticeprojectemployee.Service.Implementation;
 
 import com.example.praticeprojectemployee.Dto.EmployeDto;
 import com.example.praticeprojectemployee.Entity.EmployeEntity;
+import com.example.praticeprojectemployee.Exceptions.NotFound;
 import com.example.praticeprojectemployee.Repo.EmployeRepo;
 import com.example.praticeprojectemployee.Service.EmployeService;
 import jakarta.persistence.Access;
@@ -33,7 +34,7 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public EmployeEntity updateEmploye(EmployeDto employeDto) {
-        EmployeEntity employe=employeRepo.findById(employeDto.getId()).orElseThrow(()->new RuntimeException("Not Found"));
+        EmployeEntity employe=employeRepo.findById(employeDto.getId()).orElseThrow(()->new NotFound("Not Found"));
         EmployeEntity employeEntity=new EmployeEntity();
 //        employe.setId(employeEntity.getId());
         employe.setName(employeEntity.getName());
@@ -54,12 +55,12 @@ public class EmployeServiceImpl implements EmployeService {
 
     @Override
     public EmployeEntity getEmployeById(Long id) {
-        return employeRepo.findById(id).orElseThrow(()->new RuntimeException("Employee Not Found"));
+        return employeRepo.findById(id).orElseThrow(()->new NotFound("Employee Not Found"));
     }
 
     @Override
     public String deleteEmploye(Long id) {
-        EmployeEntity employee=employeRepo.findById(id).orElseThrow(()-> new RuntimeException("Employe not found"));
+        EmployeEntity employee=employeRepo.findById(id).orElseThrow(()-> new NotFound("Employe not found"));
         employeRepo.delete(employee);
         return "deleted";
     }
