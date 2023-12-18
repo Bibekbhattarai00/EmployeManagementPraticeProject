@@ -13,6 +13,4 @@ public interface EmployeService {
     public List<EmployeEntity> getEmployeByName(String name);
     public EmployeEntity getEmployeById(Long id);
     public String deleteEmploye(Long id);
-
-
 }

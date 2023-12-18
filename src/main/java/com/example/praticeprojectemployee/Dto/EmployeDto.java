@@ -12,5 +12,6 @@ public class EmployeDto {
     long id;
     String name;
     String address;
+    String gender;
     String email;
 }

@@ -17,5 +17,6 @@ public class EmployeEntity {
     long id;
     String name;
     String address;
+    String gender;
     String email;
 }

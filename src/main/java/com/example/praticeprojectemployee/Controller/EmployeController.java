@@ -50,7 +50,7 @@ public class EmployeController {
     }
 
     @PatchMapping("/update")
-    public EmployeEntity updateEmploye(@RequestBody EmployeDto employeDto){
+    public EmployeEntity updateEmploye(@RequestBody EmployeDto employeDto) {
         return employeService.updateEmploye(employeDto);
     }
 }
